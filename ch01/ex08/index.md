@@ -1,16 +1,17 @@
-# 問題 1.8
+## 問題 1.8
 
 以下を実行した結果を記載する。
 
 ```sh
 $OutputEncoding = [System.Text.Encoding]::UTF8
-cat ch01/ex08/e-utf8.txt | npx ts-node ch01/ex08/index.ts
+cat path/to/file.txt | npx ts-node ch01/ex08/index.ts
 ```
 
-## 出力結果
+### 出力結果
 
 [題材：「画」（著：正岡子規）](https://www.aozora.gr.jp/cards/000305/card50380.html#download)
-――――――――――――――――――――――
+
+```
 の: #### 4.21%
 -: #### 4.03%
 と: ### 2.58%
@@ -35,3 +36,4 @@ cat ch01/ex08/e-utf8.txt | npx ts-node ch01/ex08/index.ts
 し: # 1.24%
 れ: # 1.20%
 そ: # 1.09%
+```
