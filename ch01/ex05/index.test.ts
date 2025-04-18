@@ -53,7 +53,7 @@ describe("math", () => {
 
     // 負の値の階乗だったら、エラーを返す
     // it("throws error for factorial of negative value", () => {
-    //   expect(factorial(-5)).toThrow();
+    //   expect(factorial(-5)).toBe(false);
     // });
 
     // 1の階乗だったら、結果は1
