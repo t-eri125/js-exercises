@@ -36,9 +36,7 @@ export const getDaysInMonthSwitch = (selectMonth: string) => {
   switch (lastDays) {
     case 31:
       return true;
-      break;
     default:
       return false;
-      break;
   }
 }

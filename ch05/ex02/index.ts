@@ -70,6 +70,7 @@ export const escapeStringLiteralSwitch = (string: string) => {
         break;
       default:
         letter;
+        break;
     }
     escapedStr += letter;
   }
