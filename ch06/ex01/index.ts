@@ -27,7 +27,7 @@ function hashFunction(str: string): number {
   let b: number = 23; // 素数
 
   for (let i = 0; i < str.length; i++) {
-    const hash = str.codePointAt(i) || 0;
+    const hash = str.codePointAt(i) || 0;   // 指定した位置の文字の Unicode コードポイント（数値）を取得する
     hashValue = (hashValue * a + hash * b)
     // 衝突を減らすためにaとbを変換
     const tmp = a;

@@ -23,8 +23,13 @@ console.log(p.isPrototypeOf(q));   // -> true
 
 
 // Object, Array, Date, Map 間のプロトタイプチェーンの継承関係
-const obj = {};
-const arr: any[] = [];
+// const obj = {};
+// const arr: any[] = [];
+// const date = new Date();
+// const map = new Map();
+
+const obj = new Object();
+const arr: any[] = new Array();
 const date = new Date();
 const map = new Map();
 
@@ -35,13 +40,19 @@ console.log(Object.prototype.isPrototypeOf(date)); // -> true
 console.log(Object.prototype.isPrototypeOf(map));  // -> true
 
 // Array のプロトタイプが arr にあるか
-console.log(Array.prototype.isPrototypeOf(arr));   // -> true
 console.log(Array.prototype.isPrototypeOf(obj));   // -> false
+console.log(Array.prototype.isPrototypeOf(arr));   // -> true
+console.log(Array.prototype.isPrototypeOf(date));  // -> false
+console.log(Array.prototype.isPrototypeOf(map));   // -> false
 
 // Date のプロトタイプが date にあるか
-console.log(Date.prototype.isPrototypeOf(date));   // -> true
-console.log(Date.prototype.isPrototypeOf(arr));    // -> false
+console.log(Array.prototype.isPrototypeOf(obj));   // -> false
+console.log(Array.prototype.isPrototypeOf(arr));   // -> true
+console.log(Array.prototype.isPrototypeOf(date));  // -> false
+console.log(Array.prototype.isPrototypeOf(map));   // -> false
 
 // Map のプロトタイプが map にあるか
-console.log(Map.prototype.isPrototypeOf(map));     // -> true
-console.log(Map.prototype.isPrototypeOf(date));    // -> false
+console.log(Array.prototype.isPrototypeOf(obj));   // -> false
+console.log(Array.prototype.isPrototypeOf(arr));   // -> true
+console.log(Array.prototype.isPrototypeOf(date));  // -> false
+console.log(Array.prototype.isPrototypeOf(map));   // -> false

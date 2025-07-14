@@ -19,7 +19,7 @@ console.log(sumMath);   // -> 530
 
 // クラスAのchemistryの平均点
 // クラスAに絞る　→　sumMath同様に加算する　→　フィルターした配列の長さで割る
-const classA = data.filter(person => person.class === "A")
+const classA = data.filter(person => person.class === "A");
 const totalChemistry = classA.reduce((total, person) => total + person.chemistry, 0);
 const averageClassAChemistry = totalChemistry / classA.length; // 人数で割って平均
 console.log(averageClassAChemistry);  // -> 45
@@ -38,7 +38,8 @@ const mapTotalSubject = data
     .map(person => ({
         name: person.name,
         total: person.math + person.chemistry + person.geography
-    })); const maxTotalPerson = mapTotalSubject.reduce((max, person) => person.total > max.total ? person : max, mapTotalSubject[0]).name;
+    }));
+const maxTotalPerson = mapTotalSubject.reduce((max, person) => person.total > max.total ? person : max, mapTotalSubject[0]).name;
 
 console.log(maxTotalPerson);  // -> Frank
 

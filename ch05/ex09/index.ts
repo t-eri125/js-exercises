@@ -8,11 +8,31 @@
 // ここでエラーをキャッチしたら、エラーの内容を返す
 
 export function f(str: string) {
+  let obj: { success: true, data: any } | { success: false, data: string };
+
   try {
-    return `{success: true, data: ${JSON.stringify(JSON.parse(str))}}`;
+    const parsed: object = JSON.parse(str);
+    // 明示的に条件を追加して throw も可能
+    if (typeof parsed !== 'object' && parsed === null) {
+      throw new Error();
+    }
+
+    obj = { success: true, data: JSON.stringify(parsed) };
   } catch (e) {
-    return `{success: false, error: ${e}}`;
+    obj = { success: false, data: String(e) };
+  } finally {
+    console.log(obj);
+    // return obj;
   }
 }
 
-console.log(f("{\"a\": 1, \"B\": \"文字\"}"));
+// 間違えていたので修正
+// export function f(str: string) {
+//   try {
+//     return `{success: true, data: ${JSON.stringify(JSON.parse(str))}}`;
+//   } catch (e) {
+//     return `{success: false, error: ${e}}`;
+//   }
+// }
+
+f("{\"a\": 1, \"B\": \"文字\"}");

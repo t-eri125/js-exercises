@@ -11,7 +11,10 @@ const obj: any = {
 
 // ここに１行のコードを書く
 // sum()は関数のため列挙不可で、表示されない。そこで列挙化な動的に計算されるプロパティとしてgetterで扱う
-Object.defineProperty(obj, "sum", { enumerable: true, get() { mock(); return this.x + this.y; } });
+// Object.defineProperty(obj, "sum", { enumerable: true, get() { mock(); return this.x + this.y; } });
+obj.toJson = (){
+
+}
 
 test("obj.sum が正しく動作し、mockが呼ばれていること", () => {
     obj.x = 1;
