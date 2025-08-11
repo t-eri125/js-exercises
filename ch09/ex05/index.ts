@@ -7,10 +7,10 @@
 // 右辺には、クラスを表すコンストラクタ関数を指定します
 
 export function instanceOf(object: object | unknown, constructor: Function) {
-    if (object == null || (typeof object !== 'object' && typeof object !== 'function')) {
-        // object がオブジェクトではない（null, undefined, プリミティブ値など）場合
-        return false;
-    }
+    // if (object == null || (typeof object !== 'object' && typeof object !== 'function')) {
+    //     // object がオブジェクトではない（null, undefined, プリミティブ値など）場合
+    //     return false;
+    // }
 
     // 親のオブジェクト（プロトタイプ）を取得
     let objectProto = Object.getPrototypeOf(object);

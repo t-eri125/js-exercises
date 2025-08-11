@@ -3,9 +3,11 @@
 // ゲッターを持つクラスを作りなさい(初回呼び出しは0を返す)。
 
 export class C {
-    private count: number = 0;  // 初期値0
+    // private count: number = 0;  // 初期値0
+    #count: number = 0;  // 初期値0
 
     get x() {
-        return this.count++;    // 読みだすたびにインクリメント
+        // return this.count++;    // 読みだすたびにインクリメント
+        return this.#count++;    // 読みだすたびにインクリメント
     }
 }

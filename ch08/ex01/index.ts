@@ -9,6 +9,7 @@
 export const returnC = (n: number, c: string): string => {
   for (let i = 0; i < n; i++) {
     console.log(c);
+    // console.count() を使うと呼び出された回数が取得できる
   }
   return c.repeat(n);
 };
@@ -16,7 +17,9 @@ export const returnC = (n: number, c: string): string => {
 // 引数：　型定義のため必要
 // 戻り値：オブジェクトリテラルではないため、括弧不要
 export const returnX2 = (x: number): number => x * x;
+// 引数で型定義がない場合、戻り値は型チェックのif文を含む必要があるので｛｝が必要になる
 
 // 引数：　ない場合は () が必須
 // オブジェクトリテラルを返すときは {} を式として解釈させるために丸括弧が必要
 export const returnNowTime = () => ({ now: new Date() });
+// export const returnNowTime = () => ({ now: Date.now() });

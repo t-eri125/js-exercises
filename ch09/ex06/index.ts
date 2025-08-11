@@ -75,5 +75,9 @@ export class TypeMap {
     }
 
     // これ以外のメソッドは完全に委譲するため、省略
+    // 2025/07/18 ここを追加していなかったため修正
+    get(key: unknown) {
+        return this.map.get(key);
+    }
 }
 

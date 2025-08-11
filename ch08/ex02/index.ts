@@ -21,6 +21,7 @@ export const powerCalculationRecursive = (b: number, n: number): number => {
         // nが偶数の時、b^n = (b^(n/2))^2
         const half = powerCalculationRecursive(b, n / 2);
         return half * half;
+        // return powerCalculationRecursive(b * b, n / 2);  // この方が末尾最適化の面で良い
     } else {
         // nが奇数の時、b^n = b * b^(n-1)
         return b * powerCalculationRecursive(b, n - 1);
