@@ -1,7 +1,7 @@
 // 実装的にクラス内にまとめた方がいいかもしれないが、とりあえず別で用意
 
 // 攻撃力を増加させる関数
-function increaseAttack(soldier: { name: string, attack: number }, amount: number) {
+export function increaseAttack(soldier: { name: string, attack: number }, amount: number) {
     soldier.attack += amount;
 }
 

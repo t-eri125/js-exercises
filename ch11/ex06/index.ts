@@ -31,7 +31,7 @@ export function isEmailAddress(input: string | null | undefined): boolean {
 
     // @ で前後に分け、文字数制限を確認
     const [localPart, domain] = parts;
-    if (localPart.length > 64 || domain.length > 252) {
+    if (localPart.length > 64 || domain.length > 252 || input.length > 253) {
         return false;
     }
 
