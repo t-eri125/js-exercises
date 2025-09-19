@@ -159,4 +159,4 @@ function f12() {
     }).catch((e) => sample.log(e.message));
 }
 
-f12();
+f10();

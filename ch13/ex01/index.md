@@ -6,4 +6,4 @@
 longRunningFunction()の処理が無限ループする。
 <br>まずロード時のタスクの中で setTimeout() のコールバックがタスクキューに追加されて10秒後に実行される待機状態になる。
 <br>次に同タスク内で longRunningFunction() が呼ばれるが、ここで無限ループになる。
-<br>JavaScript はシングルスレッドであるため、無限ループが終わらない限り、10秒経過後も setTimeout() は待機状態のままになる。
+<br>JavaScript はシングルスレッドであるため、無限ループが終わらない限り、1秒経過後も setTimeout() は待機状態のままになる。
