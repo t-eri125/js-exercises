@@ -1,0 +1,4 @@
+{
+  "name": "山田太郎</p><a href=\"javascript:alert('XSS攻撃①')\">ここをクリック</a><br><iframe src='./index.js'></iframe><p>",
+  "age": "50<br>住所:<input type='text' placeholder='XSS攻撃③' />"
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>問題 15.1-3.2 動的インポートのテスト</title>
+</head>
+
+<body>
+    <button id="btn">テキストを赤にするボタン</button>
+    <h1>h1テキスト</h1>
+    <p>pテキスト</p>
+    <script>
+        console.log("ボタンを押す前");
+
+        const btn = document.getElementById("btn");
+        btn.addEventListener("click", async () => {
+            try {
+                const { $ } = await import(
+                    "https://releases.jquery.com/git/jquery-git.module.min.js"
+                );
+                $("*").css("color", "red");
+                console.log("ボタンを押した後");
+            } catch (e) {
+                console.error(e);
+            }
+        });
+    </script>
+</body>
+
+</html>
