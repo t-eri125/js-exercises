@@ -1,0 +1,144 @@
+/* .completed {
+  text-decoration: line-through;
+} */
+
+/* 全体のフォントとレイアウト */
+/* 利用可能なフォントの指定、背景を少し灰色、文字色を少し茶色に変更、フォームを中央寄せ600pxに */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    "Apple Color Emoji", "Segoe UI Emoji";
+  background: #fafafa;
+  margin: 40px auto;
+  max-width: 600px;
+  padding: 0 20px;
+  color: #37352f;
+}
+
+/* 新規追加フォーム全体（入力欄＋Addボタン） */
+/* フォームを横並びに、入力欄とAddボタンの間隔を8px空け、下に24pxマージン */
+#new-todo-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+/* 入力欄のスタイル */
+/* 子要素フォーム内全体に広がるように変更、内側に12px上下14px左右のパディング（文字の余白確保）、フォントサイズ16px、薄い灰色の枠線と角丸6px、背景白色、アクション時の枠線の変化を0.2秒遅延 */
+#new-todo {
+  flex: 1;
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: #ffffff;
+  transition: border 0.2s;
+}
+
+/* 入力欄のスタイル（フォーカス時） */
+/* デフォルトの濃い枠線スタイルを削除し、少し濃い灰色に変更 */
+#new-todo:focus {
+  outline: none;
+  border: 1px solid #a0a0a0;
+}
+
+/* プレースホルダーテキストの色 */
+/* プレースホルダーテキストを薄い灰色に指定 */
+#new-todo::placeholder {
+  color: #b4b4b4;
+}
+
+/* Addボタンのスタイル */
+/* 入力欄に近いが若干パディング横多め、フォント小さ目。ホバー時のカーソルをポインタに変更、アクション時の背景と枠線の変化を0.2秒遅延 */
+#new-todo-form button {
+  padding: 12px 20px;
+  font-size: 14px;
+  border: 1px solid #e0e0e0;
+  background: #ffffff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s;
+}
+
+/* Addボタンのスタイル（ホバー時） */
+/* 背景を薄い灰色、枠線を少し濃い灰色に変更 */
+#new-todo-form button:hover {
+  background: #f3f3f3;
+  border-color: #cfcfcf;
+}
+
+/* ToDo リスト全体 */
+/* デフォルトの箇条書きスタイルを削除し、パディングとマージンを0に変更 */
+#todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* 各 ToDo アイテム */
+/* 色はAddボタンと同じ。Flexbox で子要素を横並びに配置し、縦方向を中央揃え、ホバー時の背景と枠線の変化をそれぞれ0.15秒と0.2秒遅延 */
+/* 複数の子要素がない（view のみ）ため display と align-items は特に効果なし */
+#todo-list li {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 8px;
+  padding: 12px 14px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  transition: background 0.15s, border 0.2s;
+}
+
+/* 各 ToDo アイテム（ホバー時） */
+/* 背景を薄い灰色、枠線を少し濃い灰色に変更 */
+#todo-list li:hover {
+  background: #f7f7f7;
+  border-color: #d6d6d6;
+}
+
+/* ToDo アイテムの表示部分全体 */
+/* Flexbox で子要素を横並びに配置し、縦方向を中央揃え、幅100%、子要素間は12px間隔に */
+.view {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+}
+
+/* チェックボックス */
+/* サイズ18px、ホバー時のカーソルをポインタに変更 */
+.toggle {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* 内容テキスト */
+/* 内容が全体に広がるように変更、フォントサイズ16px */
+.content {
+  flex: 1;
+  font-size: 16px;
+}
+
+/* 削除ボタン */
+/* 背景・枠線なし、ホバー時のカーソルをポインタに変更、少し透過、フォントサイズ16px、ホバー時の透過変化を0.2秒遅延 */
+.destroy {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  opacity: 0.5;
+  font-size: 16px;
+  transition: opacity 0.2s;
+}
+
+/* 削除ボタン（ホバー時） */
+/* 透過をなくす */
+.destroy:hover {
+  opacity: 1;
+}
+
+/* チェック済み */
+/* 内容テキストに取り消し線を引き、色を薄い灰色に変更 */
+.completed .content {
+  text-decoration: line-through;
+  color: #9e9e9e;
+}

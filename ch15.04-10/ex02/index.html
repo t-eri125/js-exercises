@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <title>Simple ToDo</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <script type="module" src="./index.js"></script>
+  <!-- 以下の style.css は Tailwind CLI によって生成される -->
+  <!-- html または js を変更した場合は README.md に従い Tailwind CLI を実行し style.css を再度生成すること -->
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<!-- IMPORTANT: ChatGPT にはここから下の内容しか変更させないこと -->
+
+<body class="bg-[#fcfbf7] min-h-screen flex flex-col items-center py-14 font-sans">
+
+  <!-- タイトル -->
+  <h1 class="text-5xl font-bold text-gray-800 mb-10 tracking-widest flex items-center gap-4 select-none">
+    🐾
+    <span class="font-['Comic_Sans_MS',cursive]">
+      Snoopy ToDo
+    </span>
+  </h1>
+
+  <!-- 入力フォーム -->
+  <form id="new-todo-form"
+    class="flex gap-3 mb-8 w-full max-w-lg bg-white p-5 rounded-2xl shadow-sm border border-gray-200">
+    <input type="text" id="new-todo" placeholder="スヌーピーに頼みたいことは？"
+      class="flex-grow p-4 rounded-xl border border-gray-300 focus:border-black focus:ring-0 placeholder-gray-400 bg-[#fefefe] shadow-inner text-lg" />
+    <button class="px-5 py-3 rounded-xl bg-black text-white font-bold shadow hover:bg-gray-800 transition text-lg">
+      Add
+    </button>
+  </form>
+
+  <!-- ToDo リスト -->
+  <ul id="todo-list" class="w-full max-w-lg space-y-4">
+  </ul>
+
+  <!-- Template -->
+  <template id="todo-template">
+    <li class="bg-white shadow-sm p-5 rounded-2xl flex items-center border border-gray-200 transition-all duration-300">
+      <div class="view flex items-center w-full justify-between">
+        <div class="flex items-center gap-4">
+          <input class="toggle h-6 w-6 rounded border-gray-400" type="checkbox" />
+          <label class="content text-xl font-medium"></label>
+        </div>
+        <button class="destroy text-2xl hover:scale-110 transition select-none">❌</button>
+      </div>
+    </li>
+  </template>
+
+</body>
+
+
+</html>

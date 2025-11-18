@@ -2,8 +2,10 @@ import { defineConfig } from "@playwright/test";
 
 export default defineConfig({
   webServer: {
-    command: "npm run server",
+    command: "npm run server:ex11",
     port: 3000,
+    timeout: 120000,
+    reuseExistingServer: true
   },
   use: {
     headless: true,
