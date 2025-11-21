@@ -35,7 +35,10 @@ npx @tailwindcss/cli -i ./ex02/input.css -o ./ex02/style.css
 ```
 
 ```
-以下の HTML および JavaScript は ToDo アプリのソースコードです。 Tailwind CSS を使う前提で HTML と JavaScript のコードを書き換えて、スヌーピーをイメージしたデザインにしてください。 注意①: HTML と JavaScript は1つのファイルにせず分けて出力して下さい。 注意②：HTMLで変更していいのは、body内のみです。 注意③：JavaScriptで変更していいのは、コメントの書かれている関数のみです 。
+以下の HTML および JavaScript は ToDo アプリのソースコードです。 Tailwind CSS を使う前提で HTML と JavaScript のコードを書き換えて、スヌーピーをイメージしたデザインにしてください。
+注意①: HTML と JavaScript は1つのファイルにせず分けて出力して下さい。 
+注意②：HTMLで変更していいのは、body内のみです。
+注意③：JavaScriptで変更していいのは、コメントの書かれている関数のみです。
 
 →　
 余白なども意識してより洗練されたかわいらしいアプリにしてください。
