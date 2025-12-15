@@ -1,0 +1,66 @@
+html,
+body {
+    margin: 0;
+    height: 100%;
+    font-family: sans-serif;
+}
+
+/* 全体レイアウト */
+#chat-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #f5f5f5;
+}
+
+/* メッセージエリア */
+#chat {
+    margin: 0 10%;
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+}
+
+/* 共通バブル */
+.message {
+    width: fit-content;
+    max-width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 12px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+/* ユーザー（右） */
+.message.user {
+    margin-left: auto;
+    background: #e0e0e0;
+    text-align: right;
+}
+
+/* AI（左） */
+.message.ai {
+    margin-right: auto;
+    background: #ffffff;
+    border: 1px solid #ddd;
+}
+
+/* 入力フォーム */
+form {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    background: #fff;
+}
+
+form input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+}
+
+form button {
+    margin-left: 8px;
+    padding: 10px 16px;
+}

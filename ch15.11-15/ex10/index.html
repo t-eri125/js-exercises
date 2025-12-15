@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <title>Canvas Demo</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <script type="module" src="./index.js"></script>
+  <!-- inline で以下に css かく-->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+
+    input#image {
+      margin-bottom: 20px;
+    }
+
+    .canvas-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px 0;
+    }
+
+    canvas {
+      border: 1px solid #ccc;
+    }
+
+    p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #333;
+    }
+
+    #moveObj {
+      position: absolute;
+      transform: translateY(100%);
+      width: 50px;
+      height: 50px;
+      background: #ff0000;
+    }
+  </style>
+</head>
+
+<body>
+  <input id="image" type="file" accept="image/*" />
+  <div class="canvas-container">
+    <canvas id="original"></canvas>
+    <p>元画像</p>
+  </div>
+  <div class="canvas-container">
+    <canvas id="filtered"></canvas>
+    <p>フィルタ適用画像</p>
+  </div>
+  <div class="canvas-container">
+    <h3>Animation</h3>
+    <div id="moveObj"></div>
+  </div>
+
+  <script>
+    (function startAnimation() {
+      const moveObj = document.getElementById("moveObj");
+      let x = 0;
+      let vx = 2;
+
+      function move() {
+        x += vx;
+        if (x < 0) { x = 0; vx *= -1; }
+        if (x > window.innerWidth - moveObj.clientWidth) { x = window.innerWidth - moveObj.clientWidth; vx *= -1; }
+        moveObj.style.left = x + "px";
+        requestAnimationFrame(move);
+      }
+      requestAnimationFrame(move);
+    })();
+  </script>
+</body>
+
+</html>

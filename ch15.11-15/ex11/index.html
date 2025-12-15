@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <title>Canvas Demo</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <!-- inline で以下に css かく-->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+
+    #moveObj {
+      position: absolute;
+      transform: translateY(0%);
+      width: 20px;
+      height: 20px;
+      background: #ff0000;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>カントール集合</h1>
+  <div id="moveObj"></div>
+  <button id="draw">描画</button>
+  <canvas id="c" width="600" height="600"></canvas>
+
+  <script>
+    (function startAnimation() {
+      const moveObj = document.getElementById("moveObj");
+      let x = 0;
+      let vx = 2;
+
+      function move() {
+        x += vx;
+        if (x < 0) { x = 0; vx *= -1; }
+        if (x > window.innerWidth - moveObj.clientWidth) { x = window.innerWidth - moveObj.clientWidth; vx *= -1; }
+        moveObj.style.left = x + "px";
+        requestAnimationFrame(move);
+      }
+      requestAnimationFrame(move);
+    })();
+  </script>
+  <script src="./index.js"></script>
+</body>
+
+</html>

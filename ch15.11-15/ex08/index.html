@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>ex08</title>
+</head>
+
+<body>
+    <!-- リクエスト本文の入力欄を複数用意し、ボタン押下時に sendRequest 関数でを同時にリクエストを送信するできるようにすること -->
+    <!-- 時間内にレスポンスが返った場合はレスポンス本文を、エラーまたはタイムアウトが発生した場合はその内容を、対応するリクエスト入力欄の横または下に表示すること。 -->
+    <div>
+        <input id="req1" placeholder="リクエスト１" />
+        <br>
+        <span id="res1"></span>
+    </div>
+    <div>
+        <input id="req2" placeholder="リクエスト２" />
+        <br>
+        <span id="res2"></span>
+    </div>
+
+    <button id="send">送信</button>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
