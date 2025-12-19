@@ -196,7 +196,8 @@ function appendToDoItem(task) {
  */
 async function retryWithExponentialBackoff(
   func,         // 非同期関数
-  maxRetry = 1  // 最大リトライ回数
+  maxRetry = 3,  // 最大リトライ回数
+  delayMs = 1000, // リトライまでの時間（固定 1 秒待つ場合）
 ) {
   let count = 0;
 
@@ -220,43 +221,34 @@ async function retryWithExponentialBackoff(
       }
 
       // サーバーエラーをキャッチしたら、fetch のリトライを待つ
-      // const delay = Math.pow(2, count - 1) * 1000;
-      const delay = 1000; // 固定 1 秒待つ場合
-      await new Promise(resolve => setTimeout(resolve, delay));
+      await new Promise(resolve => setTimeout(resolve, delayMs));
     }
   }
 }
 
 /**
- * 教科書 p.576 より
- * リクエスト送出から指定秒以上経過してもレスポンスを受信できない場合
- * リクエストを中止
+ * ここのタイムアウトの管理が間違っていたため修正
  */
-function fetchWithTimeout(url, options = {}) {
-  if (options.timeout) { // timeout が存在し、値がゼロではない場合、
-    let controller = new AbortController(); // コントローラを作成する。
-    options.signal = controller.signal; // signal プロパティを設定する。
-
-    // 指定したミリ秒が経過した後に中止シグナルを送信するタイマーを
-    // 開始する。なお、このタイマーをキャンセルすることはない。fetch が
-    // 完了した後にabort() を呼び出しても問題はない。
-    setTimeout(() => { controller.abort(); }, options.timeout);
-  }
-
-  // ここでは通常のfetch を行うだけ。
-  return fetch(url, options);
+function withTimeout(promise, totalTimeout) {
+  return Promise.race([
+    promise,
+    new Promise((_, reject) =>
+      setTimeout(() => reject(new Error("タイムアウト")), totalTimeout)
+    )
+  ]);
 }
 
 /**
  * 3 秒でタイムアウトし、リトライを行う fetch 関数
  */
-function newFetch(url, options = {}) {
-  return retryWithExponentialBackoff(() =>
-    fetchWithTimeout(url, { ...options, timeout: 3000 }) // 3 秒でタイムアウト
+async function newFetch(url, options) {
+  return withTimeout(
+    retryWithExponentialBackoff(() => fetch(url, options)),
+    3000
   );
 }
 
-/** 
+/**
  * 通信やリトライが完了するまで ユーザが ToDo リストの追加/削除/変更、及びテキストの編集をできないようにする
  */
 function controllEnabled(enabled) {
