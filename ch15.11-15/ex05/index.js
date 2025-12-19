@@ -34,7 +34,7 @@ request.onsuccess = (event) => {
 };
 
 function renderAllFromDB() {
-  const transaction = db.transaction(STORE_NAME, "readonly");
+  const transaction = db.transaction(STORE_NAME, "readonly"); // readwriteも可
   const store = transaction.objectStore(STORE_NAME);
   const getAllRequest = store.getAll();
 

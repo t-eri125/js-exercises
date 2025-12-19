@@ -56,6 +56,8 @@ function cspMiddleware(_url, req, res) {
   res.setHeader(
     "Content-Security-Policy",
     "script-src 'unsafe-inline' http://localhost:3000/hello.js"
+    // ⚠ハッシュ値を指定して読み込むのが正解！！
+
     // unsafe-inline：スクリプトやスタイルを許可
     // hello.js：信頼されたドメインからのリソースを許可リストに追加
   );

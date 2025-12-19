@@ -24,7 +24,7 @@ wsResponse.addEventListener("message", (event) => {
     const data = JSON.parse(event.data);
 
     // すでに Hello, が付いていたら抜ける（無限ループ防止）
-    if (!data.body.startsWith("Hello,")) {
+    if (data.body.startsWith("Hello,")) {
         return;
     }
 

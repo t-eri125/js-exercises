@@ -1,3 +1,10 @@
+/* カーネルの生成 */
+const size = 10;     // カーネルのサイズ
+const sigma = 10.0;  // 標準偏差
+const kernel = [];  // カーネル：重み付けされた係数の集まり（行列） 
+const origin = Math.floor(size / 2); // カーネルの中心座標
+let sum = 0;
+
 self.addEventListener("message", (event) => {
     // index.js から送られてきたデータを受け取る
     const { width, height, buffer } = event.data;
@@ -16,13 +23,6 @@ self.addEventListener("message", (event) => {
     //
     // ガウシアンフィルタを実装する場合はこの周辺のコードを変更しなさい
     // imageData の中身はそのままに別の配列に結果を格納するとよい
-
-    /* カーネルの生成 */
-    const size = 10;     // カーネルのサイズ
-    const sigma = 10.0;  // 標準偏差
-    const kernel = [];  // カーネル：重み付けされた係数の集まり（行列） 
-    const origin = Math.floor(size / 2); // カーネルの中心座標
-    let sum = 0;
 
     // カーネルを求める式の実装
     for (let x = 0; x < size; x++) {
