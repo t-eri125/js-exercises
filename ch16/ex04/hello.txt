@@ -1,0 +1,2 @@
+Hello, World!
+これはShift_JISで保存されたテキストです。
