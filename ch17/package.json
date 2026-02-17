@@ -5,15 +5,25 @@
   "description": "今までの章では presets に用意された package.json や設定ファイルを利用して解答を作成してきたが、この章では ch17 ディレクトリの下に npm プロジェクトを作成して、自分で package.json やその他の設定ファイルを整備しなさい。",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint",
-    "format": "prettier --write"
+    "lint": "eslint ./ex01/*.js",
+    "format": "prettier --write ./ex01/*.js",
+    "test": "jest",
+    "test-cov": "jest --coverage",
+    "build": "webpack --config",
+    "server": "serve"
   },
   "author": "",
   "type": "module",
   "devDependencies": {
+    "@pollyjs/adapter-fetch": "^6.0.7",
+    "@pollyjs/core": "^6.0.6",
+    "@pollyjs/persister-fs": "^6.0.6",
     "eslint": "^8.57.1",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^10.1.8",
-    "prettier": "^3.8.1"
+    "prettier": "^3.8.1",
+    "serve": "^14.2.5",
+    "webpack": "^5.105.2",
+    "webpack-cli": "^6.0.1"
   }
 }
