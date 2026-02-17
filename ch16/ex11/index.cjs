@@ -81,5 +81,5 @@ const server = net.createServer(socket => {
   });
 });
 
-server.listen(3000, () => console.log("3000 ポートで待ち受け中"));
+server.listen(8000, () => console.log("8000 ポートで待ち受け中"));
 // Content-Length: ${Buffer.byteLength(html)}\r\n

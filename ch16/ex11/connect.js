@@ -6,7 +6,7 @@ let failed = 0;
 let result = null;
 
 for (let i = 0; i < 20000; i++) {
-    const socket = net.createConnection(3000);
+    const socket = net.createConnection(8000);
 
     socket.on("connect", () => {
         success++;

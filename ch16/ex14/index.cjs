@@ -16,7 +16,7 @@ if (threads.isMainThread) {
   const height = 256;
 
   const worker = new threads.Worker(__filename, {
-    workerData: { buffer: buffer, width: width, height: height }
+    workerData: { width: width, height: height, buffer: buffer }
   });
 
   worker.on("message", (result) => {

@@ -9,7 +9,7 @@
 ※逆に、I/O中心のWeb APIやバックエンドでは、まずはシングルスレッド＋ノンブロッキングI/Oで十分なことが多い。必要に応じてマルチスレッドやマルチプロセスを組み合わせていくのが一般的
 
 【問題点】　競合・デッドロック
-スレッドを拘束に切り替えながら処理するため、複数スレッドが同じデータを同時に変更したり、互いに処理待ちになったりする可能性がある
+スレッドを高速に切り替えながら処理するため、複数スレッドが同じデータを同時に変更したり、互いに処理待ちになったりする可能性がある
 
 【実現方法】
 複数のCPUコア　→　マルチスレッド処理が可能
@@ -40,20 +40,20 @@ Nodeのworker間通信はメッセージパッシング中心で、スレッド�
 結果：Fibonacci: 1836311902
 | スレッド数 | 実行時間 | OS機能スレッド数 | ![alt text]({467E7463-ED3C-4D7E-9BB2-C0AB151EC440}.png) |
 |---:|---:|---:|---:|
-| 10スレッド | 5.469s | 26 | ![alt text]({B7800ABA-4CEC-4801-AD81-C36676D59158}.png) |
-| 5スレッド  | 5.977s | 21 | ![alt text]({D92AAE7D-95E2-4F8E-81C2-9BEC7BB35ACA}.png) |
-| 4スレッド  | 6.307s | 20 | ![alt text](image-1.png) |
-| 3スレッド  | 6.634s | 19 | ![alt text](image-2.png) |
-| 2スレッド  | 7.835s | 18 | ![alt text](image-3.png) |
-| 1スレッド  | 11.909s | 17 | ![alt text](image-4.png) |
+| 10スレッド | 5.469s | 26 | ![alt text](./images/{B7800ABA-4CEC-4801-AD81-C36676D59158}.png) |
+| 5スレッド  | 5.977s | 21 | ![alt text](./images/{D92AAE7D-95E2-4F8E-81C2-9BEC7BB35ACA}.png) |
+| 4スレッド  | 6.307s | 20 | ![alt text](./images/image-1.png) |
+| 3スレッド  | 6.634s | 19 | ![alt text](./images/image-2.png) |
+| 2スレッド  | 7.835s | 18 | ![alt text](./images/image-3.png) |
+| 1スレッド  | 11.909s | 17 | ![alt text](./images/image-4.png) |
 
 <details><summary>図を表示／折りたたむ</summary>
 
-![alt text](image.png)
-11 ![alt text](image-6.png)
-12 ![alt text](image-10.png)
-15 ![alt text](image-8.png)
-20 ![alt text](image-9.png)
+![alt text](./images/image.png)
+11 ![alt text](./images/image-6.png)
+12 ![alt text](./images/image-10.png)
+15 ![alt text](./images/image-8.png)
+20 ![alt text](./images/image-9.png)
 
 </details>
 
@@ -70,5 +70,5 @@ SMT（論理プロセッサ）を有効にしているなら、物理コア数×
 ```
 （参考：https://everplay.jp/column/18939）
 
-![alt text](image-5.png)
+![alt text](./images/image-5.png)
 
