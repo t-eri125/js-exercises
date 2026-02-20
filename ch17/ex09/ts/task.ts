@@ -31,18 +31,18 @@ function isUserObject(obj: any): obj is User {
   );
 }
 
-export class TaskManager {
-  private _tasks: PriorityTask[] = [];  // フィールド宣言（コンストラクタ）
+export class TaskManager<T extends Task> {
+  private _tasks: T[] = [];  // フィールド宣言（コンストラクタ）
 
   // タスクを追加する
-  add(task: PriorityTask) {
+  add(task: T): void {
     this._tasks.push(task);
   }
 
   // タスクを完了にする
   // Userオブジェクトを指定した場合はそのUserのタスクを全て完了にする
   // 文字列を指定した場合は、そのタイトルのタスクを全て完了にする
-  completeTask(target: User | string) {
+  completeTask(target: User | string): void {
     if (isUserObject(target)) {
       this._tasks
         .filter((t) => t.user === target)
@@ -56,7 +56,7 @@ export class TaskManager {
 
   // 引数の関数にマッチするタスクを返す
   // 引数を省略した場合はすべてのタスクを返す
-  getTasks(predicate?: (task: PriorityTask) => boolean): PriorityTask[] {
+  getTasks(predicate?: (task: T) => boolean): T[] {
     if (predicate === undefined) {
       return this._tasks;
     } else {

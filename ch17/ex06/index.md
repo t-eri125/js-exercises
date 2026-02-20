@@ -16,3 +16,7 @@ updateGrid.js や renderGrid.js の任意行(count++)にブレークポイント
 停止中に grid などの変数値を確認でき、ステップ実行も可能だった。
 
 ![alt text]({E5486BB6-B5EE-41F6-8E84-6397B86D06D2}.png)
+
+###　講師補足
+ソースマップは基本公開しないもの
+[Apple、App Storeウェブ版のソースコードの誤公開 流出に迅速対応-セキュリティリスクも](https://rocket-boys.co.jp/security-measures-lab/apple-responds-to-accidental-app-store-web-source-code-leak/)

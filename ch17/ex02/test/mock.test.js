@@ -1,6 +1,9 @@
 /**
  * Jest のモック関数 を利用して GitHub の API をモックする方法
  */
+
+// spyonを使うべき
+
 // これからテストを行う関数をインポート
 const { createIssue, closeIssue, listIssues } = require("../index.js");
 

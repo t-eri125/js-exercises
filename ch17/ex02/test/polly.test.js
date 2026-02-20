@@ -3,6 +3,8 @@
  * 実行には GITHUB_OWNER/GITHUB_REPO/GITHUB_TOKEN 環境変数の設定が必要
  */
 
+// spyonを使うべき
+
 const fs = require("fs");
 const path = require("path");
 const { Polly } = require("@pollyjs/core");

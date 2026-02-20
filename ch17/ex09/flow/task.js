@@ -33,18 +33,18 @@ function isUserObject(obj: any): boolean {
   );
 }
 
-export class TaskManager {
-  _tasks: Array<PriorityTask> = []; // 17.8.6
+export class TaskManager: <T: Task> {
+  _tasks: Array<T> = []; // 17.8.6
 
-  // タスクを追加する
-  add(task: PriorityTask) {
-    this._tasks.push(task);
+    // タスクを追加する
+    add(task: T): void {
+      this._tasks.push(task);
   }
 
-  // タスクを完了にする
-  // Userオブジェクトを指定した場合はそのUserのタスクを全て完了にする
-  // 文字列を指定した場合は、そのタイトルのタスクを全て完了にする
-  completeTask(target: User | string) {
+    // タスクを完了にする
+    // Userオブジェクトを指定した場合はそのUserのタスクを全て完了にする
+    // 文字列を指定した場合は、そのタイトルのタスクを全て完了にする
+    completeTask(target: User | string) : void{
     if (isUserObject(target)) {
       this._tasks
         .filter((t) => t.user === target)
@@ -58,7 +58,7 @@ export class TaskManager {
 
   // 引数の関数にマッチするタスクを返す
   // 引数を省略した場合はすべてのタスクを返す
-  getTasks(predicate?: (task: PriorityTask) => boolean): Array<PriorityTask> {
+  getTasks(predicate?: (task: T) => boolean): Array<T> {
     if (predicate === undefined) {
       return this._tasks;
     } else {
@@ -67,12 +67,12 @@ export class TaskManager {
   }
 }
 
-// priority="low"または完了済のタスクを判定する
-export function isLowOrCompletedTask(priorityTask: PriorityTask): boolean {
+      // priority="low"または完了済のタスクを判定する
+      export function isLowOrCompletedTask(priorityTask: PriorityTask): boolean {
   return priorityTask.priority === "low" || priorityTask.completed;
 }
 
-// 判定関数の否定結果を返す関数を生成する
-export function not<T>(f: (T) => boolean): (T) => boolean {
+      // 判定関数の否定結果を返す関数を生成する
+      export function not<T>(f: (T) => boolean): (T) => boolean {
   return (arg: T) => !f(arg);
 }
